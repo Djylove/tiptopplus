@@ -1,0 +1,64 @@
+# Workspace-local agent markers
+.codex
+.claude/
+
+# Root planning and repo metadata to keep
+!.planning/
+!.planning/**
+
+# Large sibling repositories kept outside the curated root repo
+sam3/
+Fast-FoundationStereo/
+FoundationStereo/
+M2T2/
+droid-sim-evals/
+
+# Root local artifacts and bundles
+SAM3
+*.zip
+d435_probe_outputs/
+sam3_d435_test_outputs/
+sam3_d435_test_outputs_lowthr/
+sam3_scene4_perception_check/
+tmp_scene4_frames/
+
+# Generic caches and envs
+__pycache__/
+*.py[cod]
+*.so
+.DS_Store
+.env
+.env.*
+.venv/
+venv/
+
+# tiptop repo: keep source/docs/tests, drop heavy local state and vendored repos
+tiptop/.pixi/
+tiptop/.pytest_cache/
+tiptop/.venv/
+tiptop/.mypy_cache/
+tiptop/.ruff_cache/
+tiptop/.cache/
+tiptop/docs/_build/
+tiptop/tests/__pycache__/
+tiptop/tiptop/__pycache__/
+tiptop/tiptop/.cache/
+tiptop/tiptop.egg-info/
+tiptop/curobo/
+tiptop/cutamp/
+tiptop/tmp/
+tiptop/tiptop_server_outputs/
+tiptop/tiptop_urinal_outputs/
+tiptop/milestone1_visuals_2026-04-21/
+tiptop/multiscene_fullchain_2026-04-10/
+tiptop/scene4_rerun_2026-04-10/
+tiptop/scene4_rerun_fix_2026-04-10/
+tiptop/scene4_rerun_fix_2026-04-10_retry2/
+tiptop/scene4_rubik_test_2026-04-11/
+tiptop/tiptop_h5_*/
+tiptop/tiptop_outputs*/
+tiptop/tiptop_server_outputs*/
+tiptop/multiscene_fullchain_summary_2026-04-10.json
+
+# If vendored nested git metadata appears elsewhere, keep it out of the root repo
+**/.git

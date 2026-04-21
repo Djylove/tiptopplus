@@ -1,0 +1,109 @@
+# TiPToP Configuration for DROID setup
+
+workspace:
+  # Validated local workspace root. Override with TIPTOP_WORKSPACE_ROOT when the same
+  # sibling-repo layout lives somewhere other than /home/user/tiptop.
+  root: "/home/user/tiptop"
+
+# == Robot connection and control ==
+robot:
+  type: fr3_robotiq
+  dof: 7
+
+  # IP address or hostname of the workstation running the Bamboo controller (directly networked to robot)
+  host: "your-ip-address"
+
+  # Bamboo robot and gripper control port. You don't need to change these unless you used custom ports
+  port: 5555
+  gripper_port: 5559
+
+  # == Speed ratio for motions (0.0 to 1.0) ==
+  # This corresponds to the speed of the robot
+  # Start with 0.2 for safety, we DO NOT recommend going beyond 0.6 for safety
+  # We use 0.6 on our setup at MIT, where we have managed the camera USB cable carefully
+  time_dilation_factor: 0.2
+
+  # Robot configurations
+  q_home: [0.0, -0.628, 0.0, -2.513, 0.0, 1.885, 0.0]
+  q_capture: [-0.034, 0.090, 0.080, -1.319, -0.003, 1.253, 0.030]
+
+# == Camera configurations ==
+# Supported types: zed, realsense
+# ZED cameras support optional resolution and fps settings:
+#   HD720: 15/30/60 fps, HD1080: 15/30 fps, HD2K: 15 fps
+#   If not specified, defaults to HD720 at 60 fps
+# RealSense cameras only require serial and type (resolution and fps are not supported)
+cameras:
+  # TiPToP only uses the hand camera for perception
+  hand:
+    serial: "348522071688"
+    type: realsense
+
+  # External camera is optional but helpful for recording execution and scene visualization script (viz-scene)
+  external:
+    serial: "external-serial"
+    type: zed
+    resolution: HD1080
+    fps: 30
+
+# == Perception services ==
+# No need to change these unless you're running them on a remote machine or changed the ports
+perception:
+  vlm:
+    provider: "gemini"
+    model: ""
+
+  # Hand-camera depth source:
+  # - foundation_stereo: recommended D435 path, send stereo images to the FoundationStereo-compatible
+  #   HTTP server (for example the local /home/user/Fast-FoundationStereo checkout) to predict depth
+  # - sensor: use the hand camera's native depth to build the point cloud that is sent to M2T2
+  hand_depth_source: "foundation_stereo"
+
+  foundation_stereo:
+    url: "http://localhost:1234"
+    # Validated local FoundationStereo-compatible server checkout for the current workspace
+    project_root: "/home/user/tiptop/Fast-FoundationStereo"
+
+  m2t2:
+    url: "http://localhost:8123"
+
+  sam:
+    backend: "sam3"
+    # Legacy SAM2-only fields retained for backward compatibility; ignored by SAM3.
+    mode: "local"
+    url: "http://localhost:8000"
+    sam3:
+      # Validated local SAM3 checkout for the current workspace
+      project_root: "/home/user/tiptop/sam3"
+      # Leave empty to derive the default checkpoint from `project_root`
+      checkpoint: ""
+      resolution: 448
+      confidence_threshold: 0.15
+      device: "auto"
+      use_bfloat16: true
+      use_vlm_text_prompts: true
+      text_max_masks_per_prompt: 4
+      text_min_mask_area_ratio: 0.0008
+      text_max_mask_area_ratio: 0.8
+
+  # Perception hyperparameters
+  depth_trunc_m: 5.0             # Depth truncation threshold in meters
+  voxel_downsample_size: 0.0075  # Point cloud downsampling in meters before feeding into M2T2
+  contact_threshold_m: 0.01      # Grasp-object association distance threshold
+  contact_threshold_relaxed_m: 0.035  # Relaxed fallback threshold when strict contact association finds no grasps
+  fallback_nearest_grasps_per_object: 96  # If strict/relaxed association both fail, keep nearest-K contact grasps
+  fallback_nearest_max_distance_m: 0.03  # Hard cap for nearest-contact fallback; reject grasps farther than this from object points
+  mask_erosion_pixels: 3         # Pixels to erode segmentation masks to reduce noise
+  table_surface_margin_m: 0.0    # Extra height above the detected tabletop used to suppress table points
+  support_cutoff_fallback_slack_m: 0.004  # If an object has no points above support cutoff, lower cutoff by this slack before top-z fallback
+  min_grasp_table_clearance_m: 0.002  # Reject grasps whose gripper collision spheres dip below tabletop + clearance
+  max_grasp_table_lift_m: 0.015  # Max upward z-lift (meters) allowed to salvage near-table grasps before rejecting
+  min_object_mesh_height_m: 0.012  # Inflate near-planar segmented meshes to this minimum z-height before collision modeling
+  support_surface_assignment_threshold_m: 0.02  # Tag objects near the tabletop so planning can ignore support-contact spheres
+  support_surface_assignment_fallback_threshold_m: 0.05  # Broader support tagging threshold used only when an object has zero associated grasps
+  support_contact_prune_clearance_m: 0.002  # Additional clearance above the support plane when pruning movable collision spheres
+  bin_placement_surface_margin_m: 0.04  # Extra z margin above a segmented bin rim to avoid catching the edge during place/release
+  bin_placement_shrink_dist_m: 0.025  # Additional XY shrink of segmented bin placement region to bias placements away from the rim
+  bin_placement_center_sampling_scale: 0.25  # Sample only the central fraction of the bin placement region to avoid edge-hugging placements
+  multiview_assignment_threshold_m: 0.04  # Max distance for assigning extra-view points back to anchor-segmented objects
+  multiview_fusion_voxel_size: 0.0035  # Finer voxel size for extra-view object fusion to preserve small-object geometry

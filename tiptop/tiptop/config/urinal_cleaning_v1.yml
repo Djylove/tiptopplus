@@ -1,0 +1,64 @@
+# Layered profile for the fixed-fixture urinal-cleaning workflow.
+#
+# Usage:
+#   TIPTOP_CONFIG_PROFILE=urinal_cleaning_v1.yml tiptop-run ...
+#   TIPTOP_CONFIG_PROFILE=tiptop/config/urinal_cleaning_v1.yml urinal-localize-fixture
+#   urinal-localize-fixture config.profile=urinal_cleaning_v1.yml
+
+urinal_cleaning:
+  enabled: true
+
+  fixture:
+    id: "fixture_v1"
+    restroom_id: "restroom_a"
+    registration_mode: "sam3_text_mask_centroid"
+    min_localization_confidence: 0.85
+    min_valid_points: 128
+    prompt_texts:
+      - "urinal"
+      - "wall urinal"
+
+    # Initial coarse ROI used as a search prior for SAM3 text detection and as a
+    # fallback for roi_depth_centroid mode. Replace with real measurements for the
+    # chosen urinal once Fixture V1 is frozen.
+    roi_xywh_px: [180, 80, 260, 300]
+
+  tool:
+    type: "spray_wipe_head"
+    compliant_axis: "z"
+    nominal_spray_standoff_m: 0.10
+    nominal_wipe_speed_mps: 0.03
+    max_contact_force_n: 12.0
+
+  motion:
+    approach_offset_m: 0.08
+    retreat_offset_m: 0.10
+    contact_step_m: 0.005
+    contact_retract_m: 0.015
+    max_contact_duration_s: 8.0
+    dry_run_only: true
+
+  zones:
+    retry_limit_per_zone: 1
+    spray_upper_inner_arc:
+      contact_mode: "spray"
+      nominal_force_n: 0.0
+    wipe_upper_rim:
+      contact_mode: "wipe"
+      nominal_force_n: 8.0
+    wipe_left_inner_half:
+      contact_mode: "wipe"
+      nominal_force_n: 6.0
+    wipe_outlet_region:
+      contact_mode: "wipe"
+      nominal_force_n: 5.0
+
+  inspection:
+    mode: "vision"
+    ambiguous_retry_policy: "retry_once"
+
+  benchmark:
+    required_successes: 8
+    total_runs: 10
+    allow_human_takeover: false
+    allow_structural_collisions: false
