@@ -13,6 +13,8 @@ The workspace root `/home/user/tiptop` is the real project boundary for planning
 
 The curated root git repo tracks this workspace boundary documentation, `.planning/`, and the main `tiptop/` orchestrator code. The sibling repos remain external workspace dependencies rather than vendored contents of the root repository.
 
+The root is now a curated root git repo for the workspace rather than a local-only folder. Future planning should assume the root docs and `.planning/` are versioned here, while sibling repos remain external to that curated boundary.
+
 ## Active Baseline
 
 The current validated baseline is the five-repo stack below:

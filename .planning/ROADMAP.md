@@ -31,6 +31,10 @@
 - Define root ignore rules that keep only the intended source, docs, and planning artifacts
 - Initialize the root git repository, verify staged scope, and push to GitHub
 
+**Planned plans:**
+- `06-01` — Curated boundary docs, bootstrap contract, and planning-side alignment
+- `06-02` — Root verification script and curated-boundary ignore audit
+
 ## Archived Details
 
 - Full v1.0 roadmap archive: [v1.0-ROADMAP.md](/home/user/tiptop/.planning/milestones/v1.0-ROADMAP.md)
@@ -39,4 +43,4 @@
 
 ## Next Step
 
-Run `$gsd-plan-phase 6` to break Phase 6 into executable plans after the root repository sync baseline is committed.
+Run `$gsd-execute-phase 6` to execute the planned Phase 6 closure work on top of the already-synced root repository.

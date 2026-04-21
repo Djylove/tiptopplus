@@ -8,7 +8,7 @@
 - Issue: The real system spans multiple sibling repos, and the new root git repo only captures a curated subset of that workspace.
 - Why: The environment is assembled as a local robotics workspace with independent sibling repos and large machine-local artifacts that should not be vendored into one repository.
 - Impact: Root-repo history is now available, but runtime behavior can still drift when sibling repos change outside the curated boundary.
-- Fix approach: Keep the root repo explicit about what is excluded, and later add a workspace manifest or compatible-commit tracking for sibling repos.
+- Fix approach: Keep the root repo explicit about what is excluded, document that sibling repos remain external dependencies, and later add a workspace manifest or compatible-commit tracking for sibling repos.
 
 **Absolute path coupling:**
 - Issue: Config and docs contain many hard-coded `/home/user/tiptop/...` paths.
