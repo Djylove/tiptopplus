@@ -17,7 +17,7 @@ droid-sim-evals/
 SAM3
 *.zip
 d435_probe_outputs/
-sam3_d435_test_outputs/
+sam3_*_outputs/
 sam3_d435_test_outputs_lowthr/
 sam3_scene4_perception_check/
 tmp_scene4_frames/
@@ -32,7 +32,7 @@ __pycache__/
 .venv/
 venv/
 
-# tiptop repo: keep source/docs/tests, drop heavy local state and vendored repos
+# tiptop repo: keep source/docs/tests, drop heavy local state, envs, and nested repos
 tiptop/.pixi/
 tiptop/.pytest_cache/
 tiptop/.venv/
