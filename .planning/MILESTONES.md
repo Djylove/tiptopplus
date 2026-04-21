@@ -40,3 +40,31 @@
 **What's next:** Define v1.1 around real execution reliability, multi-machine reproducibility, or stronger live-hardware validation.
 
 ---
+
+## v1.1 Git 化与仓库同步 (Shipped: 2026-04-21)
+
+**Delivered:** A shareable curated `tiptopplus` root repository with explicit workspace-boundary docs, a rerunnable root-level verification command, and ignore rules that keep heavyweight sibling repos and local artifacts outside the uploaded boundary.
+
+**Phases completed:** 1 phase, 2 plans, 5 tasks
+
+**Key accomplishments:**
+
+- Added `WORKSPACE-BOOTSTRAP.md` so collaborators can see required sibling repos, expected layout, first verification commands, and intentional exclusions in one place.
+- Linked the bootstrap contract from `README.md` and `WORKSPACE-SERVICES.md` while keeping detailed runtime instructions in `tiptop/docs/*`.
+- Updated planning-side workspace docs so the root is clearly treated as a curated git-tracked repo and sibling repos remain external dependencies.
+- Added `scripts/verify_curated_workspace_repo.sh` to verify branch, remote, required root docs, and representative ignored paths from the workspace root.
+- Tightened `.gitignore` around sibling repos, nested git histories, environment folders, timestamped outputs, and root-level debug artifacts.
+- Closed all v1.1 requirements (`REPO-01` through `DOC-03`) with matching roadmap, requirement, project, and state artifacts.
+
+**Stats:**
+- 1 phase, 2 plans, 5 tasks
+- Root repo verification anchored by `bash scripts/verify_curated_workspace_repo.sh`
+- Timeline: 2026-04-21 → 2026-04-21
+
+**Known gaps:**
+- Full workspace reproducibility still depends on external sibling repos and any local uncommitted state they carry.
+- Bootstrap clarity still benefits from one human onboarding read-through even though the required sections and checks are now present.
+
+**What's next:** Start a new milestone on top of the curated root repository when you are ready to tackle reproducibility, live execution reliability, or broader automation.
+
+---

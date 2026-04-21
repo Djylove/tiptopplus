@@ -7,21 +7,21 @@
 
 ### Root Repository Packaging
 
-- [ ] **REPO-01**: `/home/user/tiptop` can be initialized as a root git repository with `main` as the default branch.
-- [ ] **REPO-02**: The root repository can push successfully to `https://github.com/Djylove/tiptopplus.git`.
-- [ ] **REPO-03**: The root repository includes the workspace-level docs and planning artifacts needed to onboard a collaborator to the curated boundary.
+- [x] **REPO-01**: `/home/user/tiptop` can be initialized as a root git repository with `main` as the default branch.
+- [x] **REPO-02**: The root repository can push successfully to `https://github.com/Djylove/tiptopplus.git`.
+- [x] **REPO-03**: The root repository includes the workspace-level docs and planning artifacts needed to onboard a collaborator to the curated boundary.
 
 ### Curated Scope Control
 
-- [ ] **SCOPE-01**: The root `.gitignore` excludes heavyweight sibling repos such as `sam3/`, `Fast-FoundationStereo/`, `FoundationStereo/`, `M2T2/`, and `droid-sim-evals/`.
-- [ ] **SCOPE-02**: The root `.gitignore` excludes local-only generated artifacts, archives, environment directories, and experiment outputs from both the workspace root and `tiptop/`.
-- [ ] **SCOPE-03**: Nested git histories and vendored sub-repos inside `tiptop/` such as `curobo/` and `cutamp/` are excluded from the curated upload.
+- [x] **SCOPE-01**: The root `.gitignore` excludes heavyweight sibling repos such as `sam3/`, `Fast-FoundationStereo/`, `FoundationStereo/`, `M2T2/`, and `droid-sim-evals/`.
+- [x] **SCOPE-02**: The root `.gitignore` excludes local-only generated artifacts, archives, environment directories, and experiment outputs from both the workspace root and `tiptop/`.
+- [x] **SCOPE-03**: Nested git histories and vendored sub-repos inside `tiptop/` such as `curobo/` and `cutamp/` are excluded from the curated upload.
 
 ### Documentation Alignment
 
-- [ ] **DOC-01**: Root documentation explains that `tiptopplus` is a curated workspace repo rather than a full mirror of every sibling repository.
-- [ ] **DOC-02**: Planning documents no longer claim that `.planning/` is local-only or that the root workspace lacks git after the new repo is created.
-- [ ] **DOC-03**: The active milestone and next-step docs point future work toward planning phases on top of the new root repo.
+- [x] **DOC-01**: Root documentation explains that `tiptopplus` is a curated workspace repo rather than a full mirror of every sibling repository.
+- [x] **DOC-02**: Planning documents no longer claim that `.planning/` is local-only or that the root workspace lacks git after the new repo is created.
+- [x] **DOC-03**: The active milestone and next-step docs point future work toward planning phases on top of the new root repo.
 
 ## v1.2+ Candidates
 
@@ -47,15 +47,15 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REPO-01 | Phase 6 | Pending |
-| REPO-02 | Phase 6 | Pending |
-| REPO-03 | Phase 6 | Pending |
-| SCOPE-01 | Phase 6 | Pending |
-| SCOPE-02 | Phase 6 | Pending |
-| SCOPE-03 | Phase 6 | Pending |
-| DOC-01 | Phase 6 | Pending |
-| DOC-02 | Phase 6 | Pending |
-| DOC-03 | Phase 6 | Pending |
+| REPO-01 | Phase 6 | Complete |
+| REPO-02 | Phase 6 | Complete |
+| REPO-03 | Phase 6 | Complete |
+| SCOPE-01 | Phase 6 | Complete |
+| SCOPE-02 | Phase 6 | Complete |
+| SCOPE-03 | Phase 6 | Complete |
+| DOC-01 | Phase 6 | Complete |
+| DOC-02 | Phase 6 | Complete |
+| DOC-03 | Phase 6 | Complete |
 
 **Coverage:**
 - v1.1 requirements: 9 total
@@ -64,4 +64,4 @@
 
 ---
 *Requirements defined: 2026-04-21*
-*Last updated: 2026-04-21 after starting v1.1 Git 化与仓库同步*
+*Last updated: 2026-04-21 after Phase 6 completion*

@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: git-hua-yu-cang-ku-tong-bu
-status: in_progress
-stopped_at: defining requirements and packaging curated root repository
-last_updated: "2026-04-21T11:22:07+08:00"
-last_activity: 2026-04-21 -- started v1.1 Git 化与仓库同步 and prepared curated root-repo sync
+status: complete
+stopped_at: Phase 6 completed; curated root repository boundary validated and synced
+last_updated: "2026-04-21T12:30:00+08:00"
+last_activity: 2026-04-21 -- completed Phase 6 Curated Root Repository Sync
 progress:
   total_phases: 1
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  completed_phases: 1
+  total_plans: 2
+  completed_plans: 2
+  percent: 100
 ---
 
 # Project State
@@ -21,22 +21,22 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-21)
 
 **Core value:** A real robot can reliably go from camera observations and language/task intent to grasp-ready plans using the current TiPToP + SAM3 + Fast-FoundationStereo + M2T2 stack without fragile workstation-only guesswork.
-**Current focus:** v1.1 Git 化与仓库同步
+**Current focus:** Milestone reset after v1.1 completion
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements and packaging the curated root repository
-Last activity: 2026-04-21 -- Milestone v1.1 started
+Phase: 6 Curated Root Repository Sync
+Plan: 2/2 plans complete
+Status: Phase complete
+Last activity: 2026-04-21 -- Completed Phase 6 Curated Root Repository Sync
 
-Progress: [----------] 0%
+Progress: [##########] 100%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 18
+- Total plans completed: 20
 - Average duration: -
 - Total execution time: 0.0 hours
 
@@ -49,6 +49,7 @@ Progress: [----------] 0%
 | 3. Perception Chain Stabilization | 4 | - | - |
 | 4. Planning and Service Contract Hardening | 4 | - | - |
 | 5. Regression and Verification Loop | 4 | - | - |
+| 6. Curated Root Repository Sync | 2 | - | - |
 
 **Recent Trend:**
 
@@ -77,18 +78,18 @@ Recent decisions affecting current work:
 - Phase 5: When SAM3 text-prompt recovery misses a required goal label, TiPToP now warns and falls back to VLM bbox segmentation instead of aborting the whole run
 - Milestone v1.1 kickoff: Publish `/home/user/tiptop` as a curated root repo instead of syncing the whole multi-repo workspace wholesale
 - Milestone v1.1 kickoff: Track `.planning/` in the new root repo so planning state ships with the curated workspace boundary
+- Phase 6: Added `WORKSPACE-BOOTSTRAP.md` as the collaborator-facing clone/layout contract for the curated root repo
+- Phase 6: Added `scripts/verify_curated_workspace_repo.sh` and repo-boundary verification coverage for representative ignored paths
 
 ### Pending Todos
 
-- Archive old v1.0 phase directories out of `.planning/phases/`
-- Initialize the root git repository and push to `Djylove/tiptopplus`
-- Verify the curated staging boundary before the first root-repo commit
+- Start the next milestone when you are ready to extend the curated root repo baseline with new scope
 
 ### Blockers/Concerns
 
 - The active runtime still depends on sibling repos that are intentionally excluded from the curated root repo
 - Local uncommitted state in sibling repos can still influence runtime behavior beyond what the root repo captures
-- GitHub push still depends on local credentials or SSH access being available on this machine
+- A collaborator-facing read-through of `WORKSPACE-BOOTSTRAP.md` is still the best final check for onboarding clarity
 
 ## Deferred Items
 
@@ -99,7 +100,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-04-21T11:22:07+08:00
-Stopped at: defining requirements and packaging curated root repository
-Resume file: .planning/ROADMAP.md
+Stopped at: Phase 6 completed; curated root repository boundary validated and synced
+Resume file: .planning/phases/06-curated-root-repository-sync/06-VERIFICATION.md
 
 **Completed Phase:** Archived v1.0 (Phases 1-5) — 18 plans — 2026-04-20T22:16:54+08:00

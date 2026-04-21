@@ -3,7 +3,7 @@
 ## Milestones
 
 - ✅ **v1.0 Workspace Hardening** — Phases 1-5 (shipped 2026-04-20)
-- 🚧 **v1.1 Git 化与仓库同步** — Phase 6 (in progress)
+- ✅ **v1.1 Git 化与仓库同步** — Phase 6 (shipped 2026-04-21)
 
 ## Phases
 
@@ -20,6 +20,9 @@
 
 ## Active Milestone
 
+<details>
+<summary>✅ v1.1 Git 化与仓库同步 (Phase 6) — SHIPPED 2026-04-21</summary>
+
 ### Phase 6: Curated Root Repository Sync
 
 **Goal:** Turn the validated workspace into a shareable curated root repository and sync it to GitHub without vendoring heavyweight sibling repos or machine-local artifacts.
@@ -35,6 +38,8 @@
 - `06-01` — Curated boundary docs, bootstrap contract, and planning-side alignment
 - `06-02` — Root verification script and curated-boundary ignore audit
 
+</details>
+
 ## Archived Details
 
 - Full v1.0 roadmap archive: [v1.0-ROADMAP.md](/home/user/tiptop/.planning/milestones/v1.0-ROADMAP.md)
@@ -43,4 +48,4 @@
 
 ## Next Step
 
-Run `$gsd-execute-phase 6` to execute the planned Phase 6 closure work on top of the already-synced root repository.
+Run `$gsd-new-milestone` when you are ready to define the next milestone on top of the now-validated curated root repository.

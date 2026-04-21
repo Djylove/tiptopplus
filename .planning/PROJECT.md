@@ -13,20 +13,20 @@ A real robot can reliably go from camera observations and language/task intent t
 ## Current State
 
 - **Shipped milestone:** `v1.0 Workspace Hardening` on 2026-04-20
-- **Current milestone:** `v1.1 Git 化与仓库同步` started on 2026-04-21
+- **Shipped milestone:** `v1.1 Git 化与仓库同步` on 2026-04-21
 - **Archived roadmap:** [v1.0-ROADMAP.md](/home/user/tiptop/.planning/milestones/v1.0-ROADMAP.md)
 - **Archived requirements:** [v1.0-REQUIREMENTS.md](/home/user/tiptop/.planning/milestones/v1.0-REQUIREMENTS.md)
 - **Milestone summary:** [MILESTONES.md](/home/user/tiptop/.planning/MILESTONES.md)
 - **Operational baseline:** local `SAM3 + Fast-FoundationStereo + M2T2 + TiPToP` workspace with fast / focused / heavy validation ladder
 
-## Current Milestone: v1.1 Git 化与仓库同步
+## Current Milestone: Completed v1.1 Git 化与仓库同步
 
-**Goal:** Publish the validated TiPToP workspace as a curated root repository that preserves planning context and main orchestration code while excluding heavyweight sibling repos, nested git histories, and local-only outputs.
+**Delivered goal:** Publish the validated TiPToP workspace as a curated root repository that preserves planning context and main orchestration code while excluding heavyweight sibling repos, nested git histories, and local-only outputs.
 
-**Target features:**
-- Create a shareable root git repository for `/home/user/tiptop` with a stable default branch and remote sync to `Djylove/tiptopplus`.
-- Define clear inclusion and exclusion boundaries so the uploaded repo contains docs, planning artifacts, and the main `tiptop/` orchestrator code but not giant sibling repos, checkpoints, or experiment outputs.
-- Reset planning state for the next milestone so future work can build on a versioned root repo instead of an untracked local workspace.
+**Delivered features:**
+- A shareable root git repository for `/home/user/tiptop` with `main` and remote sync to `Djylove/tiptopplus`.
+- Clear inclusion and exclusion boundaries so the uploaded repo contains docs, planning artifacts, and the main `tiptop/` orchestrator code but not giant sibling repos, checkpoints, or experiment outputs.
+- Planning state and milestone artifacts that now travel with the versioned curated root repo.
 
 ## Requirements
 
@@ -61,8 +61,8 @@ The current milestone requirements live in the active requirements document.
 | Prioritize hardening and reproducibility before large feature expansion | The core capability exists, but current risk is operational fragility more than missing first-pass functionality | ✓ validated in v1.0 |
 | Organize verification as a local fast/focused/heavy ladder | The project needs practical workstation-safe regression coverage before broader automation | ✓ validated in v1.0 |
 | Run heavy H5 regression scenes through `tiptop-h5` subprocess execution | Direct in-process pytest teardown could segfault after successful assertions due to GPU-library cleanup | ✓ validated in v1.0 |
-| Publish `/home/user/tiptop` as a curated root repo instead of a full monorepo mirror | The user wants GitHub sync for the current project, but sibling repos and local artifacts are too large and independent to vendor safely | — pending rollout in v1.1 |
-| Track `.planning/` in the new root repo | Planning now belongs with the curated workspace repo so milestone context can travel with the shared project state | — pending rollout in v1.1 |
+| Publish `/home/user/tiptop` as a curated root repo instead of a full monorepo mirror | The user wants GitHub sync for the current project, but sibling repos and local artifacts are too large and independent to vendor safely | ✓ completed in v1.1 |
+| Track `.planning/` in the new root repo | Planning now belongs with the curated workspace repo so milestone context can travel with the shared project state | ✓ completed in v1.1 |
 
 ## Evolution
 
@@ -82,4 +82,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-21 after starting v1.1 Git 化与仓库同步*
+*Last updated: 2026-04-21 after Phase 6 completion*
