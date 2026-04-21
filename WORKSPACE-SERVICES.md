@@ -4,6 +4,8 @@ This document explains which repos and runtime surfaces make up the active TiPTo
 
 The curated root repo tracks this document so the shared `tiptopplus` repository still describes the real multi-repo system, even though sibling repos such as `sam3/` and `M2T2/` are intentionally excluded from the uploaded git boundary.
 
+For clone/layout expectations and the first root-level verification pass, start with `WORKSPACE-BOOTSTRAP.md` before diving into the service matrix below.
+
 ## Inspecting and Overriding Active Paths
 
 The validated local baseline still assumes the sibling-repo layout rooted at `/home/user/tiptop`, but the active runtime/config model now supports a clear override path instead of hard-coding every repo root in source.

@@ -12,6 +12,7 @@ Use this root README as the canonical human entrypoint for the local workspace.
 
 If you need:
 
+- the curated workspace bootstrap and clone/layout contract, open [`./WORKSPACE-BOOTSTRAP.md`](./WORKSPACE-BOOTSTRAP.md)
 - the planning-side workspace boundary, start with [`./.planning/codebase/WORKSPACE.md`](./.planning/codebase/WORKSPACE.md)
 - the repo/service role matrix and high-level bring-up order, open [`./WORKSPACE-SERVICES.md`](./WORKSPACE-SERVICES.md)
 - the detailed TiPToP operator flow, continue to [`tiptop/docs/getting-started.md`](tiptop/docs/getting-started.md)
@@ -64,6 +65,7 @@ The workspace root also contains items that should not be mistaken for active so
 
 ## Where To Go Next
 
+- [`./WORKSPACE-BOOTSTRAP.md`](./WORKSPACE-BOOTSTRAP.md) — curated clone/layout contract and first verification pass for the multi-repo workspace
 - [`./.planning/codebase/WORKSPACE.md`](./.planning/codebase/WORKSPACE.md) — planning-side source of truth for workspace layers and runtime dependency view
 - [`./WORKSPACE-SERVICES.md`](./WORKSPACE-SERVICES.md) — repo/service matrix plus high-level bring-up order
 - [`tiptop/README.md`](tiptop/README.md) — repo-local TiPToP introduction once you already understand the workspace boundary
